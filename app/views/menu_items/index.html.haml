@@ -15,4 +15,18 @@
         %td= link_to 'Destroy', menu_item, method: :delete, data: { confirm: 'Are you sure?' }
 %br
 
-= link_to 'New Menu item', new_menu_item_path
+%h3 Create A New Item:
+= form_for(@new_item) do |f|
+  - if @new_item.errors.any?
+    #error_explanation
+      %h2= pluralize(@new_item.errors.count, "error") + " prohibited this menu item from being saved"
+      %ul
+        - @new_item.errors.full_messages.each do |msg|
+          %li= msg
+  %h4 Item:         
+  .large-4= f.text_field :name
+  %h4 Price:
+  .large-4= f.text_field :price
+  .actions
+    = f.submit
+

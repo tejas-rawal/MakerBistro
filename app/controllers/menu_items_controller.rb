@@ -5,6 +5,7 @@ class MenuItemsController < ApplicationController
   # GET /menu_items.json
   def index
     @menu_items = MenuItem.all
+    @new_item = MenuItem.new
   end
 
   # GET /menu_items/1
@@ -69,6 +70,6 @@ class MenuItemsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def menu_item_params
-      params.require(:menu_item).permit(:name)
+      params.require(:menu_item).permit(:name, :price)
     end
 end

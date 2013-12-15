@@ -1,4 +1,27 @@
-%p#notice= notice 
+%p#notice= notice
 
-= link_to 'Edit', edit_menu_item_path(@menu_item)
-= link_to 'Back', menu_items_path
+%h1= @menu_item.name
+%br
+%h4 Price: #{@menu_item.price}
+%br
+%h4 Ingredients:
+
+%h3 Edit Item:
+= form_for(@menu_item) do |f|
+  - if @menu_item.errors.any?
+    #error_explanation
+      %h2= pluralize(@menu_item.errors.count, "error") + " prohibited this menu item from being saved"
+      %ul
+        - @menu_item.errors.full_messages.each do |msg|
+          %li= msg
+  %h4 Item:         
+  .large-4= f.text_field :name
+  %h4 Price:
+  .large-4= f.text_field :price
+  .actions
+    = f.submit 
+#space
+%a.button.tiny Back
+
+/ = link_to 'Edit', edit_menu_item_path(@menu_item)
+/ = link_to 'Back', menu_items_path
