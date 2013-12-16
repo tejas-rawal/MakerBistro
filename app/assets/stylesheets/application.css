@@ -13,6 +13,10 @@
 
  *= require_tree .
  */
+
+html {
+  margin-left: 20px;
+}
 #space {
   height: 50px;
 }

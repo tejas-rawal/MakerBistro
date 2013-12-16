@@ -4,7 +4,17 @@
 %br
 %h4 Price: #{@menu_item.price}
 %br
-%h4 Ingredients:
+%ul Ingredients:
+- @ingredients.each do |ingredient|
+  %li= ingredient.name
+%h3 Add Ingredient
+= form_for [@menu_item, @ingredient] do |f|
+  %h4 Ingredient:
+  .large-4= f.text_field :name
+  .actions
+    = f.submit
+
+#space
 
 %h3 Edit Item:
 = form_for(@menu_item) do |f|

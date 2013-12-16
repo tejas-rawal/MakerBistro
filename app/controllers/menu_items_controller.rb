@@ -11,6 +11,8 @@ class MenuItemsController < ApplicationController
   # GET /menu_items/1
   # GET /menu_items/1.json
   def show
+    @ingredients = @menu_item.ingredients
+    @ingredient = @menu_item.ingredients.build
   end
 
   # GET /menu_items/new
