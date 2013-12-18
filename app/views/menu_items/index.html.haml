@@ -9,7 +9,11 @@
     - @menu_items.each do |menu_item|
       %tr
         %td= menu_item.name
-        %td $ #{menu_item.price} 
+        %td $ #{menu_item.price}
+        %td
+          - if menu_item.ingredients
+            -menu_item.ingredients.each do |ingredient|
+              %p.label= ingredient.name 
         %td= link_to 'Show', menu_item
         %td= link_to 'Edit', edit_menu_item_path(menu_item)
         %td= link_to 'Destroy', menu_item, method: :delete, data: { confirm: 'Are you sure?' }

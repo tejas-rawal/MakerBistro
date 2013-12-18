@@ -4,9 +4,9 @@
 %br
 %h4 Price: #{@menu_item.price}
 %br
-%ul Ingredients:
+%h4 Ingredients: 
 - @ingredients.each do |ingredient|
-  %li= ingredient.name
+  %label= ingredient.name
 %h3 Add Ingredient
 = form_for [@menu_item, @ingredient] do |f|
   %h4 Ingredient:
